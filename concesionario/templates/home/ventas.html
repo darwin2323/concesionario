@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+	Ventas 
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de ventas </h1>
+	<br>
+	<a class="btn btn-primary"href="{% url 'vista_agregar_venta' %}"> Agregar nueva venta</a>
+	{% if ventas %}
+	<table>
+	
+		<theader>
+			<tr>
+			
+				<td>Auto</td>
+				<td>Total_ventas</td>
+				<td>fecha</td>
+			</tr>
+		</theader>			
+		{% for p in ventas %}
+			<tbody>
+			
+				<tr>
+					<td>{{ p.Auto}}</td>
+					<td>{{ p.total_ventas}}</td>	
+					<td>{{ p.fecha }}</td>
+					<td><a class = "btn btn-primary" href="/ventas/{{p.id}}"><li class= "icon-search"></li> ver </a></td>
+					<td><a class = "btn btn-primary" href="/edit/ventas/{{ p.id }}"> <li class="icon-pencil"></li>Editar </a></td>
+					<td><a class = "btn btn-primary" href="/del/ventas/{{ p.id }}"><li class="icon-trash"></li>Eliminar </a></td>	
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2>No existen  ventas :</h2>
+	{% endif %}
+	
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Auto
+{% endblock %}
+
+{% block content %}
+	<h1>{{ au.nombre}}</h1>
+	{% if au.imagen %}
+		<img src="/media/{{au.imagen}}" width ="75px" heigth ="75px">
+	{% endif %}
+	<br>
+	
+	<p><b>Marca:</b>{{ au.marca }} </p>
+	<p><b>Precio:</b>{{ au.precio }} </p>
+	<p><b>Modelo:</b>{{ au.modelo}} </p>
+  
+  	<a href="/autos">mostrar lista de autos</a>
+
+{% endblock %}
+ 

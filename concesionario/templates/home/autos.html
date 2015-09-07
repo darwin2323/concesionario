@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+	Autos
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de autos </h1>
+	<br>
+	<a class = "btn btn-primary" href="{% url 'vista_agregar_auto' %}">  Agregar un nuevo auto</a>
+	
+	{% if aut %}
+	<table>
+		<theader>
+			<tr>
+				<td>Marca</td>
+				<td>Precio</td>
+				<td>Modelo</td>
+			</tr>
+		</theader>
+		{% for p in aut%}
+			<tbody> 
+				<tr>
+					<td> {{ p.marca }}</td>
+					<td> {{ p.precio}}</td>
+					<td> {{ p.modelo }}</td> 
+
+					<td><a class = "btn btn-warning" href="/auto/{{p.id}}"> <li class = "icon-search"></li>ver </a></td>
+					<td><a class = "btn btn-warning" href="/edit/auto/{{ p.id }}"><li class = "icon-pencil"></li>Editar</a></td>
+
+					<td><a class = "btn btn-warning" href="/del/autos/{{ p.id }}"><li class ="icon-glyphicon-trash"></li>Eliminar</a></td>
+				</tr>
+			</tbody>
+
+		{% endfor %}
+	</table>
+	
+		
+	{% else %}
+		<h2>No existen autos activos ala venta :</h2>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Ventas
+{% endblock %}
+
+{% block content %}
+	<h1>ventas</h1>
+	
+	<br>
+	<p><b>Fecha:</b>{{ ventas.fecha }}</p>
+	<p><b>Auto:</b> {{ ventas.Auto }}</p>
+	<p><b>Total_ventas:</b> {{ ventas.total_ventas }}</p>
+	
+
+  	<a href="/ventas/">lista de ventas </a>
+
+ {% endblock %}
+ 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+	Clientes
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de clientes </h1>
+	<br>
+	<a class ="btn btn-primary" href="{% url 'vista_agregar_cliente' %}"> Agregar un nuevo cliente </a>
+	{% if clientes %}
+	<table>
+	
+		<theader>
+			<tr>
+			
+				<td>Nombre</td>
+				<td>Cedula</td>
+				<td>Telefono</td>
+			</tr>
+		</theader>
+		{% for p in clientes %}
+			<tbody>
+				<tr>
+					<td>{{ p.nombre }}</td>
+					<td>{{ p.cedula }}</td>
+					<td>{{ p.telefono}}</td>	
+				
+					<td><a class = "btn btn-danger" href="/clientes/{{p.id}}"><li class="icon-search"></li> ver </a></td>
+					<td><a class = "btn btn-danger" href="/edit/cliente/{{ p.id }}"><li class="icon-pencil"></li> Editar </a></td>
+					<td><a class = "btn btn-danger" href="/del/clientes/{{ p.id }}"> <li class=" icon-trash"></li>Eliminar </a>	</td>
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2>No existen clientes:</h2>
+	{% endif %}
+{% endblock %} 

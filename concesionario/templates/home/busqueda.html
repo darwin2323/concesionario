@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Busqueda
+{% endblock %}
+
+{% block content %}
+
+	<form action="." method = "POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type  = "submit" value= "Busqueda">
+	</form>
+	<br>
+	{% if venta %}
+		{%for p in client%}
+			<table>
+				<td>
+					<p>Clientes </p>
+					<p>Cedula   : {{p.cedula}}</p>
+					<p>Nombre   : {{ p.nombre }}</p>
+					<p>Apellido : {{ p.apellido }}</p>
+					<p>Telefono : {{ p.telefono }}</p>
+					<a href = "/clientes/{{p.id}}" > ver </a>
+				</td>
+				<td>
+					<p>Auto</p>
+					{% for i in venta%}
+						{% if i = auto.placa%}
+							<p>entre</p>
+						{% endif%}
+					{% endfor %}
+				</td>
+			</table>
+			
+		{% endfor %}
+	{% else %}
+		<h2>No</h2>
+	{% endif%}
+
+{% endblock %}

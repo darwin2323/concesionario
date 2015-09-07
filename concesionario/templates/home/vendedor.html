@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Vendedor
+
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de vendedor </h1>
+	<br>
+	<a class="btn btn-primary"href="{% url 'vista_agregar_vendedor' %}"> Agregar un nuevo vendedor</a>
+	{% if vendedor %}
+	<table>
+		<theader>
+			<tr>
+				<td>nombre	</td>
+				<td>cedula</td>
+				<td>telefono</td>
+			</tr>
+		</theader>	
+		{% for p in vendedor %}
+		<tbody>
+			<tr>
+				<td>{{ p.nombre }}</td>
+				<td>{{ p.cedula }}</td>
+				<td>{{ p.telefono}}</td>
+					
+				
+				<td><a class = "btn btn-success"href = "/vendedor/{{p.id}}"> <li class="icon-search"></li>ver </a></td>
+				<td><a class = "btn btn-success" href="/edit/vendedor/{{ p.id }}"><li class="icon-pencil"></li> Editar </a></td>
+				<td><a class = "btn btn-success" href="/del/vendedor/{{ p.id }}"><li class="icon-trash"></li> Eliminar </a>	</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2>No existen vendedores:</h2>
+	{% endif %}
+{% endblock %}

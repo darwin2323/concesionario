@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Clientes
+{% endblock %}
+
+{% block content %}
+	<h1>{{ cliente.nombre}}</h1>
+	<br>
+	<p><b>Cedula</b>{{ clientes.cedula }}</p>
+	<p><b>Nombre:</b>{{ clientes.nombre }}</p>
+	<p><b>Telefono</b> {{ clientes.telefono }}</p>
+	<p><b>Email:</b> {{ clientes.email}}</p>
+  
+  	<a href="/clientes/">mostrar clientes</a>
+
+ {% endblock %}

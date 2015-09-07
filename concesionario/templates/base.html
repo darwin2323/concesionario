@@ -1,0 +1,86 @@
+
+<head>
+	<title>{% block title %}Titulo Base {% endblock%}</title>
+	<link rel="stylesheet" type="text/css"href="/media/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/media/css/excite-bike/jquery-ui-1.10.3.custom.css">
+
+
+	<script src="/media/js/ajax.js"></script>
+	<script src="/media/js/jquery.js"></script>
+	<script src="/media/js/jquery-ui.js"></script>
+	<script src="/media/bootstrap/js/bootstrap.js"></script>
+	<style type="text/css">
+		body{
+			padding-top: 60px;
+			padding-bottom: 48px;
+		}
+		.hero-unit{   padding-top: 39px;}
+		.siderbar-nav{padding: 9px;}
+
+
+	</style>
+
+
+</head>
+<body>
+	
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class = "navbar-inner">
+				
+				<a class ="brand"href="{% url 'vista_index '%"></a>
+				<ul class ="nav" >
+					<li><a href="{% url 'vista_autos'%}    "> Lista autos</a></li>
+
+					<li><a href="{% url 'vista_clientes'%} "> Lista de clientes </a></li>
+
+					<li><a href="{% url 'vista_ventas'%}   "> Lista de ventas </a></li>
+
+					<li><a href="{% url 'vista_vendedor'%}">  Lista de vendores</a></li>'
+
+					<li><a href="{% url 'vista_busqueda'%}"> buscar </a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row-fluid" >
+				<div class="span9">
+					<div class="hero-unit">
+						{%block content%}
+						{% endblock %}
+					</div>
+				</div>l
+				<div class="span3">
+					<div class= "well sidebar-nav">
+						<div class="nav nav-list">
+							<li class= "nav-header">Mi concesionario</li>
+							<br>
+							<h4>Informacion</h4>
+							<div class="alert alert-info">
+								<h5> Mi punto automotriz</h5>
+								<p><b>Sucursal</b>: cra 5 # 45-56</p>
+								<p><b>Telefono</b>: 254236</p>
+								<p><b>whatsapp</b>: 3117874259</p>
+								<p><b>celular </b>: 3128168428</p>
+								<p> cali- colombia</p>
+
+							</div>
+							<div aling="center">
+							<img src="/media/images/p.jpg">
+							</div>
+
+						</div> 
+					</div>
+
+				</div>
+				<br>
+			</div>
+		</div>
+</body> 
+
+</html>
+
+
+	
+	
